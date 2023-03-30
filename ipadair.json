@@ -25,7 +25,7 @@
     },
     {
         "id" : "A004",
-        "color" : "紫色",
+        "color" : "紫灰色",
         "storage":"64GB",
         "network":"Wi-Fi",
         "price":19000,
@@ -65,7 +65,7 @@
     },
     {
         "id" : "A009",
-        "color" : "紫色",
+        "color" : "紫灰色",
         "storage":"265GB",
         "network":"Wi-Fi",
         "price":24900,
@@ -105,7 +105,7 @@
     },
     {
         "id" : "A014",
-        "color" : "紫色",
+        "color" : "紫灰色",
         "storage":"64GB",
         "network":"Wi-Fi + 行動網路",
         "price":24900,
@@ -145,7 +145,7 @@
     },
     {
         "id" : "A019",
-        "color" : "紫色",
+        "color" : "紫灰色",
         "storage":"256GB",
         "network":"Wi-Fi + 行動網路",
         "price":29900,
