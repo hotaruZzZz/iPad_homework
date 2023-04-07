@@ -21,112 +21,30 @@
             <div class="col-4 m">
                 <div class="color">
                     <h3 style="font-size: 22px;" class="col-12">外觀。 挑選喜愛的顏色。</h3>
-                    <button class="col-5" id="color1" name="color" value="太空灰色"><div class="circle" style="background-color:#777579"></div>太空灰色</button>
-                    <button class="col-5" id="color2" name="color" value="藍色"><div class="circle" style="background-color:#95B7C6"></div>藍色</button>
-                    <button class="col-5" id="color3" name="color" value="粉紅色"><div class="circle" style="background-color:#E8D2CF"></div>粉紅色</button>
-                    <button class="col-5" id="color4" name="color" value="紫灰色"><div class="circle" style="background-color:#BCBBD3"></div>紫灰色</button>
-                    <button class="col-5" id="color5" name="color" value="星光色"><div class="circle" style="background-color:#E8E3DC"></div>星光色</button>
+                    <button class="col-5" name="color" value="太空灰色"><div class="circle" style="background-color:#777579"></div>太空灰色</button>
+                    <button class="col-5" name="color" value="藍色"><div class="circle" style="background-color:#95B7C6"></div>藍色</button>
+                    <button class="col-5" name="color" value="粉紅色"><div class="circle" style="background-color:#E8D2CF"></div>粉紅色</button>
+                    <button class="col-5" name="color" value="紫灰色"><div class="circle" style="background-color:#BCBBD3"></div>紫灰色</button>
+                    <button class="col-5" name="color" value="星光色"><div class="circle" style="background-color:#E8E3DC"></div>星光色</button>
                 </div>
                 <div class="storage">
                     <h3 style="font-size: 22px;" class="col-12">儲存裝置。 選擇需要的儲存空間大小。</h3>
                     <button class="col-5" name="storage" value="64GB">64GB</button>
                     <button class="col-5" name="storage" value="256GB"> 256GB</button>
                 </div>
+                <!-- <div class="line"></div> -->
                 <div  class="wifi">
                     <h3 style="font-size: 22px;" class="col-12">連線能力。 選擇連線方式。</h3>
                     <button class="col-12" name="network" value="Wi-Fi">Wi-Fi</button>
                     <button class="col-12" name="network" value="Wi-Fi + 行動網路">Wi-Fi + 行動網路</button>
                 </div>
-                <div class="msg col-12" >
+                <div class="msg col-12" style="margin-top: 50px;" >
                     <h2 id="msg"></h2>
                 </div>
             </div>
         </div>
     </div>
     
-    <script>
-        const url = "https://raw.githubusercontent.com/hotaruZzZz/iPad_homework/master/ipadair.json";
-        let xhr = new XMLHttpRequest();
-        let color, storage, network, ipadArray;
-        let msg = document.getElementById("msg");
-        let pic = document.getElementById("pic");
-
-        // 取得所有color 的 button
-        getcolor = document.getElementsByName("color");
-        getcolor.forEach(element => {
-            element.addEventListener('click', requestColor);
-        });
-
-        // 取得所有storage 的 button
-        getstorage = document.getElementsByName("storage");
-        getstorage.forEach(element => {
-            element.addEventListener('click', requestStorage);
-        });
-        
-        // 取得所有network 的 button
-        getnetwork = document.getElementsByName("network");
-        getnetwork.forEach(element => {
-            element.addEventListener('click', requestNetwork);
-        });
-
-        function requestColor(){
-            color = this.value;
-            xhr.onload = function() {
-            ipadArray = this.response;
-            let test = ipadArray.filter(item => item.color == color && item.storage == storage && item.network == network);
-            // 當三個條件都有value
-            if(Object.keys(test).length != 0){
-                let p = document.createElement("p");                
-                test.forEach(value => {
-                    msg.innerText = "NT$" + value.price +  " 10.9 吋 iPad Air " + value.network + " " + value.storage + " -" + value.color;
-                    pic.innerHTML = "<img src='" + value.picture + "' style='width:100%;' >";
-                });
-            } 
-        }
-        xhr.open("GET", url);
-        xhr.responseType="json";
-        xhr.send();
-        }
-
-        function requestStorage(){
-            storage = this.value;
-            xhr.onload = function() {
-            ipadArray = this.response;
-            let test = ipadArray.filter(item => item.color == color && item.storage == storage && item.network == network);
-            // console.log(color, storage, network);
-            // 當三個條件都有value
-            if(Object.keys(test).length != 0){
-                let p = document.createElement("p");                
-                test.forEach(value => {
-                    msg.innerText = "NT$" + value.price +  " 10.9 吋 iPad Air " + value.network + " " + value.storage + " -" + value.color;
-                    pic.innerHTML = "<img src='" + value.picture + "' style='width:100%;' >";
-                });
-            } 
-        }
-        xhr.open("GET", url);
-        xhr.responseType="json";
-        xhr.send();
-        }
-
-        function requestNetwork(){
-            network = this.value;
-            xhr.onload = function() {
-            ipadArray = this.response;
-            let test = ipadArray.filter(item => item.color == color && item.storage == storage && item.network == network);
-            // 當三個條件都有value
-            if(Object.keys(test).length != 0){
-                let p = document.createElement("p");                
-                test.forEach(value => {
-                    msg.innerText = "NT$" + value.price +  " 10.9 吋 iPad Air " + value.network + " " + value.storage + " -" + value.color;
-                    pic.innerHTML = "<img src='" + value.picture + "' style='width:100%;' >";
-                });
-            } 
-        }
-        xhr.open("GET", url);
-        xhr.responseType="json";
-        xhr.send();
-        }
-        
-    </script>
+    <script src="ipad.js"></script>
 </body>
 </html>

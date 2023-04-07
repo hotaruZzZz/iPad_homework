@@ -41,7 +41,7 @@
     position: sticky;
     top: 20px;    
 }
-.color, .storage, .wifi, .msg {
+.color, .storage, .wifi {
     display: flex;  
     flex-wrap: wrap;
     margin-top: 50px;
@@ -65,4 +65,14 @@ button{
     height: 30px;
     margin: 10px;
     box-shadow: inset 1px 1px 5px    rgb(59, 59, 59);
+}
+
+.line{
+    border-bottom: solid rgb(190, 190, 190) 2px;
+    margin: 5px;
+    width: 100%;
+}
+
+p{
+    font-size: medium;
 }
