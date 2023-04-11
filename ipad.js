@@ -1,11 +1,12 @@
 const url = "https://raw.githubusercontent.com/hotaruZzZz/iPad_homework/master/ipadair.json";
 let xhr = new XMLHttpRequest();
 let color, storage, network, ipadArray;
-let msg = document.getElementById("msg");
-let pic = document.getElementById("pic");
+let msg = document.getElementById("msg"); // 結果訊息
+let pic = document.getElementById("pic"); // 圖片顯示區
 
 // 取得所有color 的 button
 getcolor = document.getElementsByName("color");
+console.log(getcolor);
 getcolor.forEach(element => {
     element.addEventListener('click', requestColor);
     
@@ -23,43 +24,31 @@ getnetwork.forEach(element => {
     element.addEventListener('click', requestNetwork);
 });
 
+// 過濾資料
+function dataFilter(){
+    xhr.onload = function() {
+        ipadArray = this.response;
+        let test = ipadArray.filter(item => item.color == color && item.storage == storage && item.network == network);
+        ipadFilter(test);
+    }
+    xhr.open("GET", url);
+    xhr.responseType="json";
+    xhr.send();
+}
+
 function requestColor(){
     color = this.value;
-    xhr.onload = function() {
-    ipadArray = this.response;
-    let test = ipadArray.filter(item => item.color == color && item.storage == storage && item.network == network);
-    // 
-    ipadFilter(test);
-}
-xhr.open("GET", url);
-xhr.responseType="json";
-xhr.send();
+    dataFilter();
 }
 
 function requestStorage(){
     storage = this.value;
-    xhr.onload = function() {
-    ipadArray = this.response;
-    let test = ipadArray.filter(item => item.color == color && item.storage == storage && item.network == network);
-
-    ipadFilter(test);
-}
-xhr.open("GET", url);
-xhr.responseType="json";
-xhr.send();
+    dataFilter();
 }
 
 function requestNetwork(){
     network = this.value;
-    xhr.onload = function() {
-    ipadArray = this.response;
-    let test = ipadArray.filter(item => item.color == color && item.storage == storage && item.network == network);
-    
-    ipadFilter(test);
-}
-xhr.open("GET", url);
-xhr.responseType="json";
-xhr.send();
+    dataFilter();
 }
 
 // result
